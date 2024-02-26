@@ -1,0 +1,13 @@
+docker build -t rentx .
+docker run -p 3333:3333 rentx
+docker exec -it compassionate_agnesi /bin/bash
+docker-compose up
+docker-compose -d
+docker logs rentx
+docker ps
+docker rm id
+
+docker-compose start
+docker-compose stop
+docker-compose up
+docker-compose down
