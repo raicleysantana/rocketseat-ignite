@@ -1,0 +1,121 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Usuários",
+        "version": "1.0.0",
+        "description": "Uma API para gerenciar usuários."
+    },
+    "paths": {
+        "/users": {
+            "get": {
+                "summary": "Listar todos os usuários",
+                "responses": {
+                    "200": {
+                        "description": "Lista de usuários obtida com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    {
+                                        "id": 1,
+                                        "name": "Exemplo",
+                                        "email": "exemplo@email.com",
+                                        "admin": false,
+                                        "created_at": "1970-01-01",
+                                        "updated_at": "1970-01-01"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Criar um novo usuário",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "example": {
+                                "name": "Novo Usuário",
+                                "email": "novo@email.com"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "summary": "Obter informações de um usuário pelo ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Informações do usuário obtidas com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "id": 1,
+                                    "nome": "Exemplo",
+                                    "email": "exemplo@email.com",
+                                    "admin": false,
+                                    "created_at": "1970-01-01",
+                                    "updated_at": "1970-01-01"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    }
+                }
+            }
+        },
+        "/users/{id}/admin": {
+            "patch": {
+                "summary": "Atualizar a flag admin do usuário",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "put",
+                        "required": "patch",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Informações do usuário obtidas com sucesso",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "id": 1,
+                                    "nome": "Exemplo",
+                                    "email": "exemplo@email.com",
+                                    "admin": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    }
+                }
+            }
+        }
+    }
+}
