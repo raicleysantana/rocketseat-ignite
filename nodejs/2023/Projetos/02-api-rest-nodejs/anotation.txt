@@ -1,0 +1,32 @@
+#INSTALAÇÕES
+npm i fastify
+npm install -D @types/node
+npm install tsx -D
+npm i eslint @rocketseat/eslint-config -D
+npm install knex sqlite3
+npm i dotenv
+npm i zod
+npm i @fastify/cookie
+npm install -D vitest
+npm i supertest -D
+npm i -D @types/supertest
+npm i tsup -D
+
+#CRIANDO CONFIG TYPESCRIPT
+    npx tsc --init
+
+#CRIAÇÃO DE TABELA COM KNEX
+    npm run knex -- migrate:make <nome-migration>
+
+#CRIANDO SCRIPTS PARA O PACKAGE.JSON
+
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "npx tsc src/server.ts",
+        "dev": "npx tsx watch src/server.ts",
+        "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js"
+    },
+
+
+#RODA MIGRATION
+    npm run knex -- migrate:latest

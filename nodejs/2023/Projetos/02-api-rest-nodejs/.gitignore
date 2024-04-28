@@ -1,0 +1,5 @@
+database/*.db
+.env
+.env.test
+node_modules
+build
